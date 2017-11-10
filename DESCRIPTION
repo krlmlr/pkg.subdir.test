@@ -11,3 +11,4 @@ Date: 2017-11-10
 BugReports: https://github.com/krlmlr/pkg.subdir.test/issues
 URL: https://github.com/krlmlr/pkg.subdir.test, http://krlmlr.github.io/pkg.subdir.test
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
