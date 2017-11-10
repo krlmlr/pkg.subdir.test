@@ -11,21 +11,21 @@ Directory structure
 dir(".", recursive = TRUE)
 #> [1] "DESCRIPTION"           "NAMESPACE"             "pkg.subdir.test.Rproj"
 #> [4] "R/0.R"                 "R/a/1.R"               "R/b/2.R"              
-#> [7] "R/zzz.R"               "README.knit.md"        "README.Rmd"
+#> [7] "R/zzz.R"               "README.md"             "README.Rmd"
 ```
 
 Code to load files from subdirectories
 --------------------------------------
 
-``` r
-cat(readLines("R/zzz.R"), sep = "\n")
-#> dummy <- function() {}
-#> 
-#> first_level_files <- dir("R", full.names = TRUE)
-#> dirs <- first_level_files[file.info(first_level_files)$isdir]
-#> source_files <- dir(first_level_files, recursive = TRUE, full.names = TRUE)
-#> 
-#> for (file in source_files) sys.source(file, environment(dummy))
+``` rfile
+## Contents of file R/zzz.R
+dummy <- function() {}
+
+first_level_files <- dir("R", full.names = TRUE)
+dirs <- first_level_files[file.info(first_level_files)$isdir]
+source_files <- dir(first_level_files, recursive = TRUE, full.names = TRUE)
+
+for (file in source_files) sys.source(file, environment(dummy))
 ```
 
 Result

@@ -12,6 +12,18 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "README-"
 )
+
+knitr::knit_engines$set(list(
+  rfile = function(options) {
+    options$comment <- ""
+    knitr::engine_output(
+      options,
+      
+      c(paste0("## Contents of file ", options$code)),
+      c(readLines(options$code))
+    )
+  }
+))
 ```
 
 # pkg.subdir.test
@@ -26,8 +38,8 @@ dir(".", recursive = TRUE)
 
 ## Code to load files from subdirectories
 
-```{r}
-cat(readLines("R/zzz.R"), sep = "\n")
+```{rfile}
+R/zzz.R
 ```
 
 ## Result
