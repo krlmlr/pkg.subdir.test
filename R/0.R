@@ -1,2 +1,2 @@
 #' @export
-f <- function(x) x
+f <- function(x) "defined in 0.R"

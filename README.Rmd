@@ -1,0 +1,43 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# pkg.subdir.test
+
+Placing source files for R packages in subdirectories of `R/`.
+
+## Directory structure
+
+```{r}
+dir(".", recursive = TRUE)
+```
+
+## Code to load files from subdirectories
+
+```{r}
+cat(readLines("R/zzz.R"), sep = "\n")
+```
+
+## Result
+
+```{r}
+devtools::load_all()
+f
+a
+b
+```
+
+- Functions have the correct environment
+- roxygen2 directives are not (yet) picked up correctly
